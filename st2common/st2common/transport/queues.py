@@ -54,7 +54,8 @@ __all__ = [
     'STREAM_EXECUTION_UPDATE_WORK_QUEUE',
     'STREAM_LIVEACTION_WORK_QUEUE',
 
-    'WORKFLOW_EXECUTION_WORK_QUEUE'
+    'WORKFLOW_EXECUTION_WORK_QUEUE',
+    'WORKFLOW_EXECUTION_RESUME_QUEUE'
 ]
 
 # Used by the action scheduler service
@@ -112,3 +113,7 @@ STREAM_EXECUTION_OUTPUT_QUEUE = execution.get_output_queue(name=None,
 WORKFLOW_EXECUTION_WORK_QUEUE = workflow.get_status_management_queue(
     name='st2.workflow.work',
     routing_key=action_constants.LIVEACTION_STATUS_REQUESTED)
+
+WORKFLOW_EXECUTION_RESUME_QUEUE = workflow.get_status_management_queue(
+    name='st2.workflow.resume',
+    routing_key=action_constants.LIVEACTION_STATUS_RESUMING)
